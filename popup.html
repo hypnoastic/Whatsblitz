@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WhatsApp Bulk Messenger</title>
+  <style>
+    body {
+      width: 400px;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .file-upload {
+      border: 2px dashed #25D366;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .file-upload:hover {
+      background-color: #f0f0f0;
+    }
+    .progress-container {
+      display: none;
+      margin-top: 15px;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 20px;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress {
+      width: 0%;
+      height: 100%;
+      background-color: #25D366;
+      transition: width 0.3s ease;
+    }
+    .status {
+      margin-top: 10px;
+      text-align: center;
+      color: #666;
+    }
+    button {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #128C7E;
+    }
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    #cancelBtn {
+      background-color: #DC3545;
+    }
+    #cancelBtn:hover {
+      background-color: #BB2D3B;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>WhatsApp Bulk Messenger</h2>
+    <div class="file-upload" id="dropZone">
+      <input type="file" id="csvFile" accept=".csv" style="display: none;">
+      <p>Drop your CSV file here or click to upload</p>
+      <p style="font-size: 12px; color: #666;">CSV should have "phone number" and "message" columns</p>
+    </div>
+    <button id="startBtn" disabled>Start Sending Messages</button>
+    <div class="progress-container" id="progressContainer">
+      <div class="progress-bar">
+        <div class="progress" id="progressBar"></div>
+      </div>
+      <div class="status" id="status">Processing: 0/0</div>
+      <button id="cancelBtn">Cancel Process</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html> 
