@@ -44,7 +44,7 @@ async function sendWhatsAppMessage(phone, message) {
 
     console.log('Chat loaded, waiting for stability...');
     // Wait for the chat to stabilize
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
     // Find the send button
     console.log('Looking for send button...');
@@ -108,4 +108,4 @@ function waitForElement(selector, timeout = 30000) {
       reject(new Error(`Timeout waiting for element: ${selector}`));
     }, timeout);
   });
-} 
+}
